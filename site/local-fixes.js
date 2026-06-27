@@ -13,12 +13,12 @@
       '</video>' +
       '<div class="bg-local-hero__overlay"></div>' +
       '<div class="bg-local-hero__content">' +
-        '<p class="bg-local-hero__tagline">Connecting high potential young &amp; experienced game changers to great businesses in the Middle East.</p>' +
-        '<h2 class="bg-local-hero__title">This is what we do best!</h2>' +
-        '<p class="bg-local-hero__sub">Discover what Black &amp; Grey HR can do for you.</p>' +
+        '<p class="bg-local-hero__tagline">Wir finden das Top-Match f&uuml;r Ihr Team &ndash; in IT, Engineering und Financial Services.</p>' +
+        '<h2 class="bg-local-hero__title">Ihr Partner f&uuml;r Personalsuche &amp; HR Advisory.</h2>' +
+        '<p class="bg-local-hero__sub">Entdecken Sie, was Kastell Personalberatung f&uuml;r Sie tun kann.</p>' +
         '<div class="bg-local-hero__btns">' +
-          '<a class="bg-local-hero__btn" href="candidates.html">I\'m a Candidate</a>' +
-          '<a class="bg-local-hero__btn" href="employers.html">I\'m an Employer</a>' +
+          '<a class="bg-local-hero__btn" href="candidates.html">Ich bin Kandidat:in</a>' +
+          '<a class="bg-local-hero__btn" href="employers.html">Ich bin Arbeitgeber</a>' +
         '</div>' +
       '</div>';
 
