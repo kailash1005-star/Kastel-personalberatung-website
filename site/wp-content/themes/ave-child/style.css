@@ -1,0 +1,112 @@
+/*
+Theme Name: Ave Child
+Theme URI: http://ave.liquid-themes.com/
+Author: Liquid Themes
+Author URI: https://themeforest.net/user/liquidthemes
+Template:  ave
+Description: Smart, Powerful and Unlimited Customizable WordPress Theme.
+Version: 1.0
+License: GNU General Public License
+License URI: license.txt
+Text Domain: ave
+Tags: responsive, retina, rtl-language-support, blog, portfolio, custom-colors, live-editor
+*/
+
+.navbar-brand img {height: 45px;}
+.ld-pf-item.ld-pf-dark .ld-pf-btn{display:none!important;}
+.bgcountries .lqd-highlight-underline{display:none!important;}
+.main-footer{padding-top:0px!important; padding-bottom:0px!important;}
+.servicebg1 .fancy-title{ margin-bottom:0px!important;}
+.servicebg2 .iconbox h3{letter-spacing:0.2px!important;}
+.servicebg2 .iconbox .btn.iconbox .btn{border-color:#000!important;}
+.bgnewsl input{font-size:17px!important;}
+.main-nav > li.is-active > a{color:#f47c06!important;}
+.servicebg2 .iconbox-filled.iconbox-inline{padding: 25px 5%!important;}
+.applybtn3 span {padding: 12px 14px!important;}
+.applybtn3{border-width:8px!important;}
+.main-header{background:#fff;}
+.b67{background:#fff!important; border-color:#fff!important;}
+.b67:hover{background:#f47c06!important; border-color:#f47c06!important}
+.b67 span.btn-txt{text-transform:uppercase; font-weight:700;}
+body {overflow: hidden !important; height: auto !important;}
+.wpb_single_image .vc_figure-caption{font-size:18px; font-weight:600; color:#f47c06!important; font-style:normal;}
+
+.applybtn3 {
+  position:relative;
+  animation: ripple 3s linear infinite;
+}
+.ripple::before,
+.ripple::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  border-radius: 50%;
+  animation: ripple 3s linear infinite 1s;
+}
+.ripple::after {
+  animation: ripple 3s linear infinite 2s;
+}
+@keyframes ripple {
+  0% {
+    box-shadow: 0 0 0 .7rem rgba(255,255,255, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 8rem rgba(255,255,255, 0);
+  }
+}
+.tblbtn .btn:hover{background:#f47c06!important;}
+.tblbtn2 .btn:hover{background:#000!important;}
+.tblbtn .pricing-table-header h5{background:#fff!important;}
+.tblbtn2 .pricing-table-header h5{background:#fff!important;}
+.socializer .sr-linkedin a, .socializer .sr-linkedin a:visited, .socializer .sr-facebook a, .socializer .sr-facebook a:visited, .socializer .sr-instagram a, .socializer .sr-instagram a:visited, .socializer .sr-twitter a, .socializer .sr-twitter a:visited{border:solid 1px #000!important; background:transparent!important;}
+.tblbtn .pricing-table-header h5, .tblbtn2 .pricing-table-header h5{font-weight:600}
+.pricing-table ul{margin-bottom:28px;}
+
+
+@media screen and (max-width: 1199px){.main-header .navbar-header {
+    background-color:#fff!important;
+}}
+
+@media screen and (max-width: 1199px){[data-mobile-nav-trigger-alignment=right] .navbar-header .navbar-toggle {display:flex!important;
+}}
+#cvtitle{color: #f47c06; clear: both; margin: 0px auto 25px auto; display:inline-block;}
+@media screen and (max-width: 900px){#cvtitlemain .ld-fh-txt {
+    font-size:23px;
+}}
+.dnone{display:none!important;}
+@media screen and (max-width:600px){.wpsr-followbar{display:none!important;}}
+
+@media screen and (min-width: 1100px){}
+.bgcandidate .iconbox-filled{background-color:transparent!important;}
+.iconbox-inline .s1{padding-right:7%; display:block;}
+.iconbox-filled.iconbox-inline{padding: 45px 5% 0px!important;}
+
+
+.contactbtn4 a{border-width: 1px;  font-size: 13px;
+    font-weight: 600 !important;
+    letter-spacing: 0.05em !important;}
+.contactbtn4 a span.link-txt{background:#f47c06; padding: 0.7em 2em;border-radius:50em;}
+.contactbtn4 a span.txt{color:#fff}
+.contactbtn4 a:hover span.link-ext, .contactbtn4 a span.link-ext{display:none!important;}
+
+.contactbtn4 a:hover span.link-txt{ -webkit-transform: translateY(-1px);
+          transform: translateY(-1px);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05), 0px 2px 2px rgba(0, 0, 0, 0.05), 0px 4px 4px rgba(0, 0, 0, 0.05), 0px 8px 8px rgba(0, 0, 0, 0.05), 0px 16px 16px rgba(0, 0, 0, 0.05);}
+.contactbtn4 a span.submenu-expander{}
+.menusm4 span.txt{color:#f47c06; font-size: 12px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.05em !important; }
+
+.vc_custom_1580964818821{background-image: url("https://black-grey.com/wp-content/uploads/2020/02/3a-3.jpg?id=6646");
+ background-color: #fafafc;}
+@media screen and (max-width:600px){
+.vc_custom_1580964818821{background-image:none!important; background-color: #fafafc;}
+	.ttlmob h4{padding:0% 2%!important;}
+	.tttlmob2 h3, .ttlmob6 h2, .ld_fancy_heading_5e3bc1936011d h3 span.ld-fh-txt, .ld_fancy_heading_5e3bc193605cd h3 span, .ttlmob7 h2 span.ld-fh-txt{font-size:23px!important;}
+	.vc_custom_1575231144256 h2{font-size:18px!important; line-height:26px!important;}
+	.ttlmb9 .st-desc{font-size:14px;}
+	body.home{background:#111111!important;}
+}	

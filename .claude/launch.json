@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "black-grey-static",
+      "runtimeExecutable": "py",
+      "runtimeArgs": ["-m", "http.server", "8732"],
+      "cwd": "site",
+      "port": 8732
+    }
+  ]
+}

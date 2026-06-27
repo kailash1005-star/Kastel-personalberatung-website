@@ -1,0 +1,80 @@
+/* Local static-mirror fixes: replacement fullscreen video hero for the homepage.
+   The original Revolution Slider's reveal timeline does not fire reliably offline,
+   so we render a clean hero that reproduces the original look and plays the video. */
+.bg-local-hero{
+  position:relative;
+  width:100%;
+  min-height:100vh;
+  height:100vh;
+  overflow:hidden;
+  background:#0c0c0c;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.bg-local-hero__video{
+  position:absolute;
+  top:50%;left:50%;
+  width:100%;height:100%;
+  min-width:100%;min-height:100%;
+  transform:translate(-50%,-50%);
+  object-fit:cover;
+  z-index:0;
+}
+.bg-local-hero__overlay{
+  position:absolute;inset:0;
+  background:rgba(8,8,8,.35);
+  z-index:1;
+}
+.bg-local-hero__content{
+  position:relative;
+  z-index:2;
+  text-align:center;
+  max-width:900px;
+  padding:0 24px;
+}
+.bg-local-hero__tagline{
+  color:#f47c06;
+  font-family:"Nunito",sans-serif;
+  font-weight:600;
+  font-size:clamp(20px,2.4vw,34px);
+  line-height:1.45;
+  margin:0 0 26px;
+}
+.bg-local-hero__title{
+  color:#fff;
+  font-family:"Nunito",sans-serif;
+  font-weight:700;
+  font-size:clamp(22px,2vw,30px);
+  margin:0 0 10px;
+}
+.bg-local-hero__sub{
+  color:#b9b9bd;
+  font-family:"Nunito",sans-serif;
+  font-weight:400;
+  font-size:clamp(14px,1.1vw,17px);
+  margin:0 0 38px;
+}
+.bg-local-hero__btns{
+  display:flex;
+  gap:22px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.bg-local-hero__btn{
+  display:inline-block;
+  color:#fff;
+  font-family:"Nunito",sans-serif;
+  font-weight:400;
+  font-size:clamp(15px,1.2vw,22px);
+  text-decoration:none;
+  border:1px solid #fff;
+  border-radius:55px;
+  padding:12px 42px;
+  transition:all .25s ease;
+  white-space:nowrap;
+}
+.bg-local-hero__btn:hover{
+  background:#fff;
+  color:#0c0c0c;
+}

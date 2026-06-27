@@ -1,0 +1,1 @@
+/* redirect to https disabled for local static mirror */
