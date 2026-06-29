@@ -41,3 +41,97 @@
   // safety: run again after full load in case revslider rebuilt its wrapper
   window.addEventListener('load', buildHero);
 })();
+
+/* --- About Us Page Interactivity & Smooth Scroll Effects --- */
+(function() {
+  function initAboutEffects() {
+    // 1. Dynamic Scroll Progress Bar (only on about-us page)
+    if (window.location.pathname.indexOf('about-us.html') !== -1 || document.querySelector('.about-hero-section')) {
+      var progressEl = document.querySelector('.scroll-progress');
+      if (!progressEl) {
+        progressEl = document.createElement('div');
+        progressEl.className = 'scroll-progress';
+        document.body.appendChild(progressEl);
+      }
+      
+      window.addEventListener('scroll', function() {
+        var winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+        var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        var scrolled = (winScroll / height) * 100;
+        if (progressEl) {
+          progressEl.style.width = scrolled + '%';
+        }
+      }, { passive: true });
+    }
+
+    // 2. Sticky Dossier Cards Overlap Scaling Effect
+    var cards = document.querySelectorAll('.dossier-card');
+    if (cards.length > 0) {
+      function handleCardScaling() {
+        cards.forEach(function(card, idx) {
+          var nextCard = cards[idx + 1];
+          if (nextCard) {
+            var nextRect = nextCard.getBoundingClientRect();
+            var overlapStart = window.innerHeight * 0.9;
+            var overlapEnd = 170 + (idx * 25); // aligns with sticky top offset
+            
+            if (nextRect.top < overlapStart) {
+              var progress = (overlapStart - nextRect.top) / (overlapStart - overlapEnd);
+              progress = Math.min(Math.max(progress, 0), 1); // clamp to 0..1
+              
+              var scale = 1 - (progress * 0.05);
+              var opacity = 1 - (progress * 0.4);
+              var blur = progress * 2.5;
+              
+              card.style.transform = 'scale(' + scale + ')';
+              card.style.opacity = opacity;
+              card.style.filter = 'blur(' + blur + 'px)';
+            } else {
+              card.style.transform = 'scale(1)';
+              card.style.opacity = '1';
+              card.style.filter = 'none';
+            }
+          }
+        });
+      }
+      
+      window.addEventListener('scroll', handleCardScaling, { passive: true });
+      handleCardScaling();
+    }
+
+    // 3. Scroll Reveal Animations (using IntersectionObserver)
+    var reveals = document.querySelectorAll('.reveal');
+    if (reveals.length > 0) {
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target); // trigger once
+            }
+          });
+        }, {
+          threshold: 0.1,
+          rootMargin: '0px 0px -60px 0px'
+        });
+        
+        reveals.forEach(function(el) {
+          observer.observe(el);
+        });
+      } else {
+        // Fallback for older browsers
+        reveals.forEach(function(el) {
+          el.classList.add('is-visible');
+        });
+      }
+    }
+  }
+
+  // Bind to DOM load triggers
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAboutEffects);
+  } else {
+    initAboutEffects();
+  }
+  window.addEventListener('load', initAboutEffects);
+})();
