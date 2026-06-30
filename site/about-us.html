@@ -682,24 +682,25 @@ function testCSSVariables(){var e="rgb(255, 198, 0)",o=document.createElement("s
 			</button>	
 </div><!-- /.navbar-header --></div><div class="col vc_col-sm-9  "><div class="collapse navbar-collapse ld_header_collapsed_6a3e24042321e" id="main-header-collapse"><ul id="primary-nav" class="main-nav ld_header_menu_kastell main-nav-hover-underline-1 nav align-items-lg-stretch justify-content-lg-center"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="index.html"><span class="link-icon"></span><span class="link-txt"><span class="link-ext"></span><span class="txt">Home</span></span></a></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="employers.html"><span class="link-icon"></span><span class="link-txt"><span class="link-ext"></span><span class="txt">F&uuml;r Arbeitgeber</span></span></a></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="candidates.html"><span class="link-icon"></span><span class="link-txt"><span class="link-ext"></span><span class="txt">F&uuml;r Kandidaten</span></span></a></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="executive-search.html"><span class="link-icon"></span><span class="link-txt"><span class="link-ext"></span><span class="txt">Executive Search</span></span></a></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="about-us.html"><span class="link-icon"></span><span class="link-txt"><span class="link-ext"></span><span class="txt">Über uns</span></span></a></li><li class="contactbtn4 menu-item menu-item-type-post_type menu-item-object-page"><a href="contact.html"><span class="link-icon"></span><span class="link-txt"><span class="link-ext"></span><span class="txt">Kontakt</span></span></a></li></ul></div><!-- /.navbar-collapse --></div>			</div><!-- /.row mainbar-row -->		</div><!-- /.mainbar -->	</div><!-- /.container --></div><!-- /.mainbar-wrap --></header>
 		<main class="content" id="content">
-  <!-- Hero Section -->
-  <section class="about-hero-section">
-    <div class="about-hero-bg-grid"></div>
-    <div class="about-hero-glow"></div>
+  <!-- ============ HERO — KINETIC STATEMENT ============ -->
+  <section class="about-hero-section" id="about-hero">
+    <div class="about-hero-bg-grid" data-parallax="0.18"></div>
+    <div class="about-hero-glow" data-parallax="0.32"></div>
+    <div class="about-hero-noise"></div>
     <div class="ld-container container">
-      <p class="about-hero-eyebrow">Personalberatung &middot; Executive Search</p>
-      <h1 class="about-hero-headline">
+      <p class="about-hero-eyebrow"><span>Personalberatung &middot; Executive Search</span></p>
+      <h1 class="about-hero-headline" data-split-words>
         Wir sind Ihr Zugang zu Ihren künftigen <em>Mitarbeitenden.</em>
       </h1>
       <div class="about-hero-foot">
         <p class="about-hero-sub">Seit über zwei Jahrzehnten verbinden wir Unternehmen in IT, Engineering und Financial Services mit den Köpfen, die sie wirklich weiterbringen.</p>
         <div class="about-hero-stats">
           <div class="about-hero-stat">
-            <div class="about-hero-stat-num">20+</div>
+            <div class="about-hero-stat-num" data-count-to="20" data-suffix="+">20+</div>
             <div class="about-hero-stat-label">Jahre Erfahrung</div>
           </div>
           <div class="about-hero-stat">
-            <div class="about-hero-stat-num">7M</div>
+            <div class="about-hero-stat-num" data-count-to="7" data-suffix="M">7M</div>
             <div class="about-hero-stat-label">Ø Time-to-Hire</div>
           </div>
           <div class="about-hero-stat">
@@ -709,27 +710,34 @@ function testCSSVariables(){var e="rgb(255, 198, 0)",o=document.createElement("s
         </div>
       </div>
     </div>
+    <div class="about-scroll-cue" aria-hidden="true">
+      <span>Scroll</span>
+      <span class="about-scroll-cue-line"></span>
+    </div>
   </section>
 
-  <!-- Intro Section -->
-  <section class="about-intro-section" id="intro">
+  <!-- ============ MANIFESTO — LINE-BY-LINE SCROLL REVEAL ============ -->
+  <section class="about-manifesto-section" id="intro">
     <div class="ld-container container">
-      <div class="about-intro-grid">
-        <h2 class="about-intro-title reveal">Wir sind Ihr Zugang zu Ihren künftigen <em>Mitarbeitenden.</em></h2>
-        <div class="about-intro-text">
-          <p class="reveal reveal-delay-1">Die Zahl offener Vakanzen für Fach- und Führungskräfte steigt seit Jahren stetig. Entsprechend beträgt die Zeit zur Besetzung einer Vakanz beispielsweise in der IT oder im Engineering nach aktuellen Umfragen verschiedener Institute aus dem Jahr 2023 mittlerweile über 7 Monate.</p>
-          <p class="reveal reveal-delay-2">Umso größer wird der Einfluss kompetenter Personalberater, die den Markt und die aktuellen Personal-Trends kennen. Unsere Berater nehmen sich die Zeit zum persönlichen Austausch in Ihrem Hause, nehmen auf, was Ihnen wichtig ist, und entwickeln ein Verständnis für Ihre Unternehmenskultur.</p>
-          <p class="reveal reveal-delay-3">Unsere jahrelange Erfahrung und die Augenhöhe im Dialog mit Ihrem Management sowie erfahrenen Kandidat:innen zeichnet uns aus. Das Ergebnis ist ein Top-Match in Ihrem Team. Wir begleiten Sie über viele Jahre und sind so Ihr verlängerter Arm in den Kandidatenmarkt.</p>
+      <p class="about-eyebrow about-eyebrow-dark"><span>Unser Anspruch</span></p>
+      <div class="about-manifesto-grid">
+        <h2 class="about-manifesto-lead" data-split-words>
+          Wir sind Ihr Zugang zu Ihren künftigen <em>Mitarbeitenden.</em>
+        </h2>
+        <div class="about-manifesto-body">
+          <p class="about-manifesto-p" data-split-words>Die Zahl offener Vakanzen für Fach- und Führungskräfte steigt seit Jahren stetig. Die Zeit zur Besetzung einer Vakanz in IT oder Engineering beträgt nach aktuellen Umfragen mittlerweile über sieben Monate.</p>
+          <p class="about-manifesto-p" data-split-words>Umso größer wird der Einfluss kompetenter Personalberater, die den Markt kennen. Unsere Berater nehmen sich Zeit für den persönlichen Austausch in Ihrem Hause und entwickeln ein Verständnis für Ihre Unternehmenskultur.</p>
+          <p class="about-manifesto-p" data-split-words>Jahrelange Erfahrung und Augenhöhe im Dialog mit Ihrem Management zeichnen uns aus. Das Ergebnis ist ein Top-Match in Ihrem Team — wir begleiten Sie über Jahre als verlängerter Arm in den Kandidatenmarkt.</p>
         </div>
       </div>
 
-      <div class="about-stat-strip reveal">
+      <div class="about-stat-strip">
         <div class="about-stat-cell">
-          <div class="about-stat-value">2000<sup>*</sup></div>
+          <div class="about-stat-value" data-count-to="2000" data-suffix="*">2000<sup>*</sup></div>
           <div class="about-stat-cell-label">Erste Mandate unseres Beraterteams im Markt</div>
         </div>
         <div class="about-stat-cell">
-          <div class="about-stat-value">3</div>
+          <div class="about-stat-value" data-count-to="3">3</div>
           <div class="about-stat-cell-label">Kernbranchen: IT, Engineering &amp; Services</div>
         </div>
         <div class="about-stat-cell">
@@ -740,31 +748,34 @@ function testCSSVariables(){var e="rgb(255, 198, 0)",o=document.createElement("s
     </div>
   </section>
 
-  <!-- Team Sticky Dossier Cards Section -->
+  <!-- ============ TEAM — PINNED HORIZONTAL SCROLL ============ -->
   <section class="about-team-section" id="team">
-    <div class="ld-container container">
-      <div class="about-team-header">
-        <div>
-          <p class="about-eyebrow reveal">Das Beraterteam</p>
-          <h2 class="about-team-title reveal">Köpfe, die den Markt kennen.</h2>
-        </div>
-        <p class="about-team-meta reveal">Drei Berater, ein Anspruch: Executive Search auf Augenhöhe — geprägt von jahrzehntelanger Erfahrung bei den führenden Namen der Branche.</p>
-      </div>
+    <div class="about-hscroll" data-hscroll>
+      <div class="about-hscroll-track" data-hscroll-track>
 
-      <div class="about-sticky-stack-container">
-        
-        <!-- Dossier Card 1 -->
-        <article class="dossier-card reveal">
+        <!-- Intro panel -->
+        <div class="about-hpanel about-hpanel-intro">
+          <p class="about-eyebrow"><span>Das Beraterteam</span></p>
+          <h2 class="about-hpanel-title">Köpfe, die den<br>Markt kennen.</h2>
+          <p class="about-hpanel-meta">Drei Berater, ein Anspruch: Executive Search auf Augenhöhe — geprägt von jahrzehntelanger Erfahrung bei den führenden Namen der Branche.</p>
+          <div class="about-hscroll-hint" aria-hidden="true">
+            <span class="about-hscroll-hint-arrow">&rarr;</span> seitlich scrollen
+          </div>
+        </div>
+
+        <!-- Dossier 1 -->
+        <article class="about-hpanel dossier-card">
+          <div class="dossier-index" aria-hidden="true">01</div>
           <div class="dossier-photo-wrap">
-            <img src="assets/image1.png" alt="Benedict Hadjistojanov" class="dossier-photo">
+            <img src="assets/image1.png" alt="Benedict Hadjistojanov" class="dossier-photo" data-card-parallax>
           </div>
           <div class="dossier-body">
             <h3 class="dossier-name">Benedict Hadjistojanov</h3>
             <p class="dossier-role">Executive Search &amp; IT-Personalberatung</p>
             <div class="dossier-bio">
-              <p>Benedict Hadjistojanov ist seit 2014 in der IT-zentrierten Personalberatung tätig und sammelte u.&nbsp;a. bei einer britischen, global operierenden Personalberatung sowie einem der Marktführer in der Personalberatung seine Erfahrungen im Executive Search.</p>
-              <p>Direkt nach Abschluss seines Studiums arbeitete er als Berater und Team Supervisor IT bei Antal International, einer global ausgerichteten Beratung. Im Anschluss war er innerhalb der ALLGEIER Gruppe in den Bereichen Personalberatung und Freiberuflervermittlung tätig. Bei GULP verantwortete er vollumfänglich Executive Searches.</p>
-              <p>Bei KASTELL betreut er DACH-weit Fach- und Führungsmandate vornehmlich im IT-Bereich. Seine besondere Leidenschaft gilt dem klassischen Headhunting und der vollumfänglichen Beratung beider Parteien.</p>
+              <p>Seit 2014 in der IT-zentrierten Personalberatung tätig — Erfahrungen im Executive Search u.&nbsp;a. bei einer global operierenden britischen Beratung sowie einem der Marktführer der Branche.</p>
+              <p>Nach dem Studium Berater und Team Supervisor IT bei Antal International, anschließend in der ALLGEIER Gruppe sowie bei GULP mit voller Verantwortung für Executive Searches.</p>
+              <p>Bei KASTELL betreut er DACH-weit Fach- und Führungsmandate im IT-Bereich. Seine Leidenschaft gilt dem klassischen Headhunting und der Beratung beider Parteien.</p>
             </div>
             <div class="dossier-tags">
               <span class="dossier-tag">Executive Search</span>
@@ -774,17 +785,19 @@ function testCSSVariables(){var e="rgb(255, 198, 0)",o=document.createElement("s
           </div>
         </article>
 
-        <!-- Dossier Card 2 -->
-        <article class="dossier-card reveal">
+        <!-- Dossier 2 -->
+        <article class="about-hpanel dossier-card">
+          <div class="dossier-index" aria-hidden="true">02</div>
           <div class="dossier-photo-wrap">
-            <img src="assets/image2.png" alt="Jennifer Opper" class="dossier-photo">
+            <img src="assets/image2.png" alt="Jennifer Opper" class="dossier-photo" data-card-parallax>
           </div>
           <div class="dossier-body">
             <h3 class="dossier-name">Jennifer Opper</h3>
             <p class="dossier-role">Identifikation &amp; Ansprache Fach- &amp; Führungskräfte</p>
             <div class="dossier-bio">
-              <p>Jennifer Opper startete ihre Karriere 2019 als Personalberaterin im Bereich Engineering und Embedded Software bei der firma eSAR, die 2021 in der Firma GULP bzw. Randstad Professionals aufging. Im weiteren Verlauf ihrer Karriere verlagerte sich der Fokus in die IT und dabei zu den Fach- und Führungskräften im Umfeld verschiedener ERP-Applikationen — und zunehmend in Richtung SAP.</p>
-              <p>Bei KASTELL betreut sie die Identifikation und Ansprache von Fach- und Führungskräften für die Besetzung der laufenden Mandate.</p>
+              <p>Startete 2019 als Personalberaterin im Bereich Engineering und Embedded Software bei eSAR, das 2021 in GULP bzw. Randstad Professionals aufging.</p>
+              <p>Im weiteren Verlauf verlagerte sich ihr Fokus in die IT — zu Fach- und Führungskräften im Umfeld verschiedener ERP-Applikationen und zunehmend in Richtung SAP.</p>
+              <p>Bei KASTELL verantwortet sie die Identifikation und Ansprache von Fach- und Führungskräften für die Besetzung der laufenden Mandate.</p>
             </div>
             <div class="dossier-tags">
               <span class="dossier-tag">Engineering</span>
@@ -794,17 +807,18 @@ function testCSSVariables(){var e="rgb(255, 198, 0)",o=document.createElement("s
           </div>
         </article>
 
-        <!-- Dossier Card 3 -->
-        <article class="dossier-card reveal">
+        <!-- Dossier 3 -->
+        <article class="about-hpanel dossier-card">
+          <div class="dossier-index" aria-hidden="true">03</div>
           <div class="dossier-photo-wrap">
-            <img src="assets/image3.png" alt="Marcus Opper" class="dossier-photo">
+            <img src="assets/image3.png" alt="Marcus Opper" class="dossier-photo" data-card-parallax>
           </div>
           <div class="dossier-body">
             <h3 class="dossier-name">Marcus Opper</h3>
             <p class="dossier-role">Personalberatung — IT, Engineering &amp; Finance</p>
             <div class="dossier-bio">
-              <p>Marcus Opper begann seine Personalberatungs-Karriere nach erfolgreichem Abschluss seines Jura-studiums und des juristischen Referendariats im Jahr 2000 bei der HAYS AG in Mannheim, Zürich und Frankfurt — zunächst in der Projektbesetzung, im Anschluss in der Personalberatung IT, Engineering und Finance.</p>
-              <p>Nach verschiedenen Managementfunktionen, u.&nbsp;a. bei Manpower als Prokurist, bei SOLCOM als Niederlassungsleiter, bei ALLGEIER Experts als Geschäftsführer der Personalberatungs-Tochter für IT und Engineering, und bei GULP als Verantwortlicher für die IT-Personalberatung, liegt sein Fokus heute auf der Personalberatung im Umfeld der Fach- und Führungskräfte im Handel, der produzierenden Industrie und in IT-Unternehmen.</p>
+              <p>Begann seine Karriere nach Jura-Studium und Referendariat im Jahr 2000 bei der HAYS AG in Mannheim, Zürich und Frankfurt — zunächst in der Projektbesetzung, dann in der Personalberatung IT, Engineering und Finance.</p>
+              <p>Nach Managementfunktionen u.&nbsp;a. bei Manpower (Prokurist), SOLCOM (Niederlassungsleiter), ALLGEIER Experts (Geschäftsführer) und GULP liegt sein Fokus heute auf Fach- und Führungskräften in Handel, Industrie und IT.</p>
             </div>
             <div class="dossier-tags">
               <span class="dossier-tag">Finance</span>
@@ -814,6 +828,11 @@ function testCSSVariables(){var e="rgb(255, 198, 0)",o=document.createElement("s
           </div>
         </article>
 
+      </div>
+      <!-- horizontal progress -->
+      <div class="about-hscroll-progress" aria-hidden="true">
+        <span class="about-hscroll-count"><b data-hscroll-current>01</b> / 03</span>
+        <span class="about-hscroll-bar"><i data-hscroll-fill></i></span>
       </div>
     </div>
   </section>
@@ -833,10 +852,10 @@ function testCSSVariables(){var e="rgb(255, 198, 0)",o=document.createElement("s
   </section>
 
   <!-- ============ CONTACT CTA ============ -->
-  <section class="about-contact-section" id="kontakt">
-    <div class="about-contact-glow"></div>
+  <section class="about-contact-section" id="kontakt" data-pointer-glow>
+    <div class="about-contact-glow" data-glow-follow></div>
     <div class="ld-container container text-center">
-      <p class="about-eyebrow reveal" style="justify-content:center;">Kontakt</p>
+      <p class="about-eyebrow reveal" style="justify-content:center;"><span>Kontakt</span></p>
       <h2 class="about-contact-title reveal">Lernen Sie <em>Ihr</em><br>Beraterteam kennen.</h2>
       <p class="about-contact-text reveal">Haben Sie Fragen oder möchten Sie ein persönliches Gespräch vereinbaren? Wir freuen uns auf Ihren Austausch.</p>
 
@@ -851,9 +870,9 @@ function testCSSVariables(){var e="rgb(255, 198, 0)",o=document.createElement("s
         </a>
       </div>
 
-      <a href="contact.html" class="about-btn-primary reveal">
-        Kontaktseite besuchen
-        <span class="about-btn-arrow">&rarr;</span>
+      <a href="contact.html" class="about-btn-primary reveal" data-magnetic>
+        <span class="about-btn-label">Kontaktseite besuchen
+        <span class="about-btn-arrow">&rarr;</span></span>
       </a>
     </div>
   </section>
@@ -932,5 +951,8 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
 //# sourceURL=wp-includes/js/wp-emoji-loader.min.js
 </script>
 
-<div class="lqd-sticky-sentinel invisible pos-abs" style="width: 1905px; height: 297px; top: 0px; left: 0px;"></div><script src="local-fixes.js"></script>
+<div class="lqd-sticky-sentinel invisible pos-abs" style="width: 1905px; height: 297px; top: 0px; left: 0px;"></div><script src="assets/vendor/lenis.min.js"></script>
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="assets/vendor/ScrollTrigger.min.js"></script>
+<script src="local-fixes.js"></script>
 </body></html>
