@@ -1,17 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&display=swap');
+
+/* ============================================================
+   PROJEKTE — careers board (dark hero + search + filters + job cards + modal)
+   Kastell-branded reproduction of the previous Black & Grey careers board.
+   ============================================================ */
+#kp-jobs-root{ font-family:'Montserrat',sans-serif; }
+
+/* hero */
+.kp-hero{
+  position:relative;
+  background:
+    radial-gradient(1200px 520px at 50% -140px, rgba(1, 43, 40,.16), transparent 60%),
+    radial-gradient(900px 500px at 82% 0, rgba(60,150,130,.20), transparent 55%),
+    linear-gradient(180deg,#012b28 0%,#01201d 55%,#001a17 100%);
+  color:#fff; text-align:center;
+  padding:120px 24px 96px;
+  overflow:hidden;
+}
+.kp-hero::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background-image:radial-gradient(rgba(255,255,255,.10) 1px, transparent 1.4px);
+  background-size:26px 26px;
+  -webkit-mask-image:radial-gradient(900px 360px at 50% 0, #000 0, transparent 70%);
+          mask-image:radial-gradient(900px 360px at 50% 0, #000 0, transparent 70%);
+  opacity:.7;
+}
+.kp-hero__inner{ position:relative; z-index:1; max-width:860px; margin:0 auto; }
+.kp-hero__eyebrow{
+  color:#8fd0c1; font-weight:700; letter-spacing:.18em; text-transform:uppercase;
+  font-size:13px; margin:0 0 18px;
+}
+.kp-hero__title{
+  font-weight:700; line-height:1.08; margin:0 0 20px;
+  font-size:clamp(30px,5vw,58px); color:#fff;
+}
+.kp-hero__sub{
+  color:#b9bec9; font-size:clamp(15px,1.4vw,19px); line-height:1.6;
+  max-width:660px; margin:0 auto 34px;
+}
+.kp-hero__btn{
+  display:inline-block; text-decoration:none;
+  color:#fff; border:1px solid rgba(255,255,255,.55); border-radius:55px;
+  padding:14px 40px; font-weight:600; font-size:16px;
+  transition:background .25s ease, color .25s ease, border-color .25s ease;
+}
+.kp-hero__btn:hover{ background:#ffffff; border-color:#ffffff; color:#012b28; }
+
+/* board */
+.kp-board{ background:#f7f5f0; padding:64px 24px 90px; }
+.kp-board__inner{ max-width:1160px; margin:0 auto; }
+.kp-board__head{ margin:0 0 26px; }
+.kp-board__head h2{ color:#14171D; font-weight:700; font-size:clamp(26px,3vw,38px); margin:0 0 6px; }
+.kp-board__sub{ color:#012b28; font-weight:600; font-size:clamp(15px,1.4vw,19px); margin:0; }
+
+/* search bar */
+.kp-search{
+  display:flex; gap:14px; flex-wrap:wrap; align-items:flex-end;
+  background:#fff; border:1px solid #e7e2d8; border-radius:16px;
+  padding:18px; margin:0 0 30px;
+}
+.kp-search__field{ flex:1 1 220px; display:flex; flex-direction:column; gap:6px; }
+.kp-search__field label{ font-size:12px; font-weight:700; color:#6b6f78; text-transform:uppercase; letter-spacing:.08em; }
+.kp-search__field input{
+  border:1px solid #dcd7cc; border-radius:10px; padding:12px 14px;
+  font-size:15px; font-family:inherit; color:#14171D; background:#fdfcfa;
+}
+.kp-search__field input:focus{ outline:none; border-color:#012b28; }
+.kp-search__btn{
+  flex:0 0 auto; background:#012b28; color:#fff; border:0; cursor:pointer;
+  border-radius:10px; padding:13px 30px; font-weight:700; font-size:15px; font-family:inherit;
+  transition:background .2s ease;
+}
+.kp-search__btn:hover{ background:#001f1c; }
+
+/* layout: filters + list */
+.kp-layout{ display:grid; grid-template-columns:250px 1fr; gap:28px; align-items:start; }
+.kp-filters{
+  background:#fff; border:1px solid #e7e2d8; border-radius:16px; padding:22px 20px;
+  position:sticky; top:20px;
+}
+.kp-filters h3{ margin:0 0 16px; font-size:18px; color:#14171D; font-weight:700; }
+.kp-filter-group{ border-top:1px solid #efeae0; padding:14px 0 4px; }
+.kp-filter-group h4{ margin:0 0 10px; font-size:13px; letter-spacing:.06em; text-transform:uppercase; color:#6b6f78; }
+.kp-check{ display:flex; align-items:center; gap:9px; font-size:14px; color:#2b2f38; margin:0 0 9px; cursor:pointer; }
+.kp-check input{ accent-color:#012b28; width:16px; height:16px; }
+.kp-filters__reset{
+  margin-top:14px; width:100%; background:transparent; border:1px solid #dcd7cc;
+  color:#6b6f78; border-radius:10px; padding:10px; font-weight:600; cursor:pointer; font-family:inherit;
+  transition:border-color .2s, color .2s;
+}
+.kp-filters__reset:hover{ border-color:#012b28; color:#012b28; }
+
+.kp-count{ color:#6b6f78; font-weight:600; font-size:14px; margin:0 0 14px; }
+.kp-list{ display:grid; gap:14px; }
+.kp-card{
+  display:flex; align-items:center; justify-content:space-between; gap:18px;
+  background:#fff; border:1px solid #e7e2d8; border-radius:14px;
+  padding:22px 24px; cursor:pointer;
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.kp-card:hover, .kp-card:focus{
+  transform:translateY(-2px); box-shadow:0 14px 34px rgba(20,23,29,.10);
+  border-color:#012b28; outline:none;
+}
+.kp-card__title{ margin:0 0 10px; font-size:clamp(16px,1.4vw,19px); font-weight:700; color:#14171D; line-height:1.35; }
+.kp-card__meta{ display:flex; flex-wrap:wrap; align-items:center; gap:10px 16px; margin:0 0 10px; color:#6b6f78; font-size:13.5px; }
+.kp-card__meta span{ display:inline-flex; align-items:center; gap:6px; }
+.kp-card__meta svg{ color:#012b28; }
+.kp-tag{ background:#f2ede3; color:#5c6068; border-radius:40px; padding:3px 12px; font-size:12px; font-weight:700; }
+.kp-tag--remote{ background:rgba(1, 43, 40,.12); color:#012b28; }
+.kp-card__snippet{ margin:0 0 12px; color:#4a4e57; font-size:14.5px; line-height:1.55; max-width:70ch; }
+.kp-card__foot{ display:flex; align-items:center; gap:18px; color:#8a8e97; font-size:13px; font-weight:600; }
+.kp-card__date{ display:inline-flex; align-items:center; gap:6px; }
+.kp-card__cta{
+  flex:0 0 auto; align-self:center; color:#012b28; font-weight:700; font-size:15px;
+  border:1px solid #012b28; border-radius:40px; padding:9px 20px; white-space:nowrap;
+  transition:background .2s ease, color .2s ease;
+}
+.kp-card:hover .kp-card__cta{ background:#012b28; color:#fff; }
+.kp-empty{ background:#fff; border:1px dashed #d8d2c6; border-radius:14px; padding:40px; text-align:center; color:#6b6f78; }
+
+/* detail modal */
+.kp-modal{ position:fixed; inset:0; z-index:9999; display:none; }
+.kp-modal.is-open{ display:block; }
+.kp-modal__backdrop{ position:absolute; inset:0; background:rgba(10,12,18,.6); backdrop-filter:blur(2px); }
+.kp-modal__panel{
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  width:min(720px,92vw); max-height:88vh; background:#fff; border-radius:18px;
+  box-shadow:0 30px 80px rgba(0,0,0,.4); overflow:hidden;
+  display:flex; flex-direction:column;
+}
+.kp-modal__close{
+  position:absolute; top:14px; right:16px; z-index:2;
+  background:#f2ede3; border:0; width:38px; height:38px; border-radius:50%;
+  font-size:22px; line-height:1; color:#14171D; cursor:pointer;
+}
+.kp-modal__close:hover{ background:#e6dfd2; }
+.kp-modal__scroll{ overflow-y:auto; padding:40px 42px; }
+.kp-modal__eyebrow{ color:#012b28; font-weight:700; letter-spacing:.14em; text-transform:uppercase; font-size:12px; margin:0 0 10px; }
+.kp-modal__title{ margin:0 0 16px; font-size:clamp(20px,2.4vw,28px); color:#14171D; font-weight:700; line-height:1.3; padding-right:40px; }
+.kp-modal__meta{ display:flex; flex-wrap:wrap; gap:10px 16px; align-items:center; color:#6b6f78; font-size:14px; margin:0 0 24px; padding-bottom:22px; border-bottom:1px solid #efeae0; }
+.kp-modal__meta span{ display:inline-flex; align-items:center; gap:6px; }
+.kp-modal__meta svg{ color:#012b28; }
+.kp-modal__exp{ font-weight:600; }
+.kp-modal__body{ color:#33373f; font-size:15.5px; line-height:1.7; }
+.kp-modal__body h4{ color:#14171D; font-size:16px; font-weight:700; margin:22px 0 10px; }
+.kp-modal__body ul{ margin:0 0 6px; padding-left:20px; }
+.kp-modal__body li{ margin:0 0 7px; }
+.kp-modal__apply{ margin-top:28px; display:flex; flex-wrap:wrap; align-items:center; gap:16px; }
+.kp-apply-btn{
+  display:inline-block; background:#012b28; color:#fff; text-decoration:none;
+  border-radius:55px; padding:13px 34px; font-weight:700; font-size:15px;
+  transition:background .2s ease;
+}
+.kp-apply-btn:hover{ background:#001f1c; }
+.kp-apply-note{ color:#8a8e97; font-size:13px; }
+
+@media (max-width:860px){
+  .kp-layout{ grid-template-columns:1fr; }
+  .kp-filters{ position:static; }
+}
+@media (max-width:600px){
+  .kp-card{ flex-direction:column; align-items:flex-start; }
+  .kp-card__cta{ align-self:stretch; text-align:center; }
+  .kp-modal__scroll{ padding:32px 22px; }
+}
+
 /* Local static-mirror fixes: replacement fullscreen video hero for the homepage.
    The original Revolution Slider's reveal timeline does not fire reliably offline,
    so we render a clean hero that reproduces the original look and plays the video. */
 .bg-local-hero{
   position:relative;
-  width:100%;
+  /* full-bleed: break out of any padded/max-width container so the video is edge-to-edge */
+  width:100vw;
+  max-width:100vw;
+  margin-left:calc(50% - 50vw);
+  margin-right:calc(50% - 50vw);
   min-height:100vh;
   height:100vh;
   overflow:hidden;
-  background:#0c0c0c;
+  background:#012b28;
   display:flex;
   align-items:center;
   justify-content:center;
 }
+/* Neutralise the broken Revolution Slider height forcer. On inner pages it is
+   stuck at ~99985px and shows up as a giant blank gap below the hero. */
+rs-fw-forcer{ display:none !important; }
+
 .bg-local-hero__video{
   position:absolute;
   top:50%;left:50%;
@@ -23,7 +199,7 @@
 }
 .bg-local-hero__overlay{
   position:absolute;inset:0;
-  background:rgba(8,8,8,.35);
+  background:rgba(1, 43, 40,.45);
   z-index:1;
 }
 .bg-local-hero__content{
@@ -32,9 +208,26 @@
   text-align:center;
   max-width:900px;
   padding:0 24px;
+  /* hidden until the intro video finishes; not clickable while hidden */
+  opacity:0;
+  transform:translateY(24px);
+  pointer-events:none;
+  transition:opacity 1s ease, transform 1s ease;
+}
+.bg-local-hero.is-revealed .bg-local-hero__content{
+  opacity:1;
+  transform:translateY(0);
+  pointer-events:auto;
+}
+/* deepen the overlay slightly once the video stops, so the text reads clearly */
+.bg-local-hero__overlay{
+  transition:background .8s ease;
+}
+.bg-local-hero.is-revealed .bg-local-hero__overlay{
+  background:rgba(1, 43, 40,.6);
 }
 .bg-local-hero__tagline{
-  color:#f47c06;
+  color:#ffffff;
   font-family:"Nunito",sans-serif;
   font-weight:600;
   font-size:clamp(20px,2.4vw,34px);
@@ -76,26 +269,27 @@
 }
 .bg-local-hero__btn:hover{
   background:#fff;
-  color:#0c0c0c;
+  color:#012b28;
 }
 
 /* ============================================================
    ABOUT US — SCROLL-ANIMATED REDESIGN (Lenis + GSAP)
    ============================================================ */
 :root {
-  --about-ink:        #14171D;
-  --about-ink-2:      #1A1D24;
-  --about-ink-soft:   #232730;
+  --about-ink:        #012b28;   /* brand green (was near-black #14171D) */
+  --about-ink-2:      #01201d;
+  --about-ink-soft:   #043a35;
   --about-paper:      #F7F5F0;
   --about-paper-dim:  #EFEBE3;
-  --about-brass:      #C9954B;
-  --about-brass-soft: #E2C691;
+  --about-brass:      #8fd0c1;   /* light-green accent for dark sections (was gold #C9954B) */
+  --about-brass-soft: #b6e0d5;
   --about-slate:      #5B6270;
   --about-hairline:   #DAD5C9;
   --about-hairline-dark: rgba(247,245,240,0.14);
 
-  --about-serif: "Fraunces", Georgia, serif;
-  --about-sans:  "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  /* unified global font — was Fraunces serif + Inter */
+  --about-serif: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+  --about-sans:  'Montserrat', 'Helvetica Neue', Arial, sans-serif;
 
   --about-ease: cubic-bezier(0.16, 1, 0.3, 1);
   --about-ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
@@ -442,3 +636,110 @@ html.lenis, html.lenis body { height: auto; }
   .about-scroll-cue-line::after, .about-hscroll-hint-arrow { animation: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
 }
+
+/* ============================================================
+   GLOBAL BRAND THEME — uniform palette + typography
+   Primary: green #012b28 (white text) · Secondary: white (near-black text).
+   Removes the old orange/gold accent and pure-black surfaces site-wide.
+   Loaded last, so these win over the theme/child CSS.
+   ============================================================ */
+:root{
+  --kp-green:#012b28;      /* primary brand green (backgrounds + accent on white) */
+  --kp-green-d:#001f1c;    /* darker green for hovers */
+  --kp-accent:#8fd0c1;     /* light green accent for use ON dark green */
+  --kp-ink:#141719;        /* near-black body text on white */
+  --kp-white:#ffffff;
+}
+
+/* ---- 1. One global font: Montserrat ------------------------------------ */
+body, h1, h2, h3, h4, h5, h6, p, a, span, li, ul, ol, dl, dt, dd,
+blockquote, figure, figcaption, label, input, textarea, select, button,
+table, td, th, strong, em, small, sup, sub, cite, address,
+.btn, .btn-txt, .ld-fh-txt, .vc_btn3, .vc_btn3-container,
+.navbar-nav, .main-nav, .st-desc, .lqd-highlight-txt, .ld-fancy-heading{
+  font-family:'Montserrat','Helvetica Neue',Arial,sans-serif !important;
+}
+
+/* ---- 2. Header / navigation → green with white text -------------------- */
+.main-header,
+.main-header .mainbar,
+.main-header .mainbar-wrap,
+.main-header .navbar-header,
+.main-header.navbar-sticky-on,
+.main-header.is-stuck{ background:#012b28 !important; }
+@media screen and (max-width:1199px){
+  .main-header .navbar-header,
+  #main-header-collapse,
+  .main-header .navbar-collapse{ background-color:#012b28 !important; }
+}
+.main-nav > li > a,
+.navbar-nav > li > a,
+.main-header .navbar-nav a,
+.main-nav a{ color:#ffffff !important; }
+.main-nav > li.is-active > a,
+.main-nav > li > a:hover,
+.navbar-nav > li > a:hover{ color:#8fd0c1 !important; }
+/* nav "Kontakt" pill → white on green */
+.contactbtn4 a span.link-txt{ background:#ffffff !important; }
+.contactbtn4 a span.txt{ color:#012b28 !important; }
+.menusm4 span.txt{ color:#8fd0c1 !important; }
+
+/* ---- 3. Footer → green (its inner row is a hard-coded light grey band that
+          otherwise reads as an "empty white gap"; force green + white text) - */
+.main-footer, .site-footer, #footer, footer.main-footer,
+.main-footer section, .main-footer .vc_row-has-fill,
+.main-footer .vc_row-has-bg, .main-footer .vc_custom_1577732127639{
+  background-color:#012b28 !important; background-image:none !important; color:#ffffff !important;
+}
+.main-footer .liquid-row-overlay{ background:transparent !important; }
+.main-footer p, .main-footer span, .main-footer li,
+.main-footer a, .site-footer a, #footer a,
+.main-footer .lqd-custom-menu > li > a{ color:#ffffff !important; }
+.main-footer a:hover, .site-footer a:hover,
+.main-footer .lqd-custom-menu > li > a:hover{ color:#8fd0c1 !important; }
+
+/* Sticky-footer plumbing reserves a tall spacer (e.g. height:272px) that shows
+   up as a big empty gap above the footer — neutralise it and let it flow. */
+.lqd-sticky-footer-sentinel{ display:none !important; height:0 !important; }
+.lqd-sticky-footer-wrap .main-footer.footer-stuck,
+footer.footer-stuck{ position:static !important; }
+
+/* ---- 4. Remove leftover pure-black section surfaces → green ------------ */
+[style*="background: rgb(0, 0, 0)"],
+[style*="background-color: rgb(0, 0, 0)"],
+[style*="background:#000"],
+[style*="background: #000"]{ background-color:#012b28 !important; }
+body.home{ background:#012b28 !important; }
+
+/* ---- 5. Buttons & CTAs → green (white text) on light surfaces ---------- */
+.btn-solid,
+.vc_btn3-shape-round.vc_btn3-style-outline:hover,
+.tblbtn .btn:hover, .tblbtn2 .btn:hover,
+.b67:hover, .applybtn3{
+  background:#012b28 !important; border-color:#012b28 !important; color:#ffffff !important;
+}
+.vc_btn3-shape-round.vc_btn3-style-outline,
+.btn-bordered{ border-color:#012b28 !important; color:#012b28 !important; }
+.vc_btn3-shape-round.vc_btn3-style-outline:hover,
+.btn-bordered:hover{ background:#012b28 !important; color:#ffffff !important; }
+
+/* ---- 6. Highlight underline / accent bits that were orange ------------- */
+.lqd-highlight-underline .lqd-highlight-inner,
+.lqd-highlight > .lqd-highlight-line{ background-color:#012b28 !important; }
+
+/* ---- 7. Sticky header nav (theme keeps dark links at higher specificity) - */
+.mainbar-wrap.is-stuck{ background:#012b28 !important; }
+.mainbar-wrap.is-stuck .main-nav > li > a,
+.mainbar-wrap.is-stuck .header-module .lqd-custom-menu > li > a{ color:#ffffff !important; }
+.mainbar-wrap.is-stuck .main-nav > li > a:hover,
+.mainbar-wrap.is-stuck .header-module .lqd-custom-menu > li > a:hover{ color:#8fd0c1 !important; }
+
+/* ============================================================
+   ABOUT US — accents that sit on LIGHT (paper) sections.
+   The --about-brass token is now a light green tuned for the dark (green)
+   sections; on light sections it would be too pale, so force dark green.
+   ============================================================ */
+.about-eyebrow-dark{ color:#012b28 !important; }
+.about-eyebrow-dark::before{ background:#012b28 !important; }
+.about-marquee-dot{ background:#012b28 !important; }
+.about-marquee-item em{ color:#012b28 !important; }

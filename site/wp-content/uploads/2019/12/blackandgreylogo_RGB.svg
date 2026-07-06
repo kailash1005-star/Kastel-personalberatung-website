@@ -2,15 +2,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 123">
   <title>Kastell Personalberatung</title>
   <g stroke="none">
-    <path d="M52 12 92 26 V58 C92 83 74 99 52 110 30 99 12 83 12 58 V26 Z" fill="none" stroke="#C9A24A" stroke-width="4" stroke-linejoin="round"/>
-    <g fill="#C9A24A">
+    <path d="M52 12 92 26 V58 C92 83 74 99 52 110 30 99 12 83 12 58 V26 Z" fill="none" stroke="#ffffff" stroke-width="4" stroke-linejoin="round"/>
+    <g fill="#ffffff">
       <rect x="28" y="50" width="48" height="11"/>
       <rect x="28" y="41" width="11" height="9"/>
       <rect x="46" y="41" width="11" height="9"/>
       <rect x="65" y="41" width="11" height="9"/>
     </g>
-    <path d="M43 83 V72 a9 9 0 0 1 18 0 V83" fill="none" stroke="#C9A24A" stroke-width="4" stroke-linecap="round"/>
+    <path d="M43 83 V72 a9 9 0 0 1 18 0 V83" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
   </g>
-  <text x="128" y="63" font-family="Nunito, Arial, sans-serif" font-size="55" font-weight="800" letter-spacing="7" fill="#15181d">KASTELL</text>
-  <text x="131" y="95" font-family="Nunito, Arial, sans-serif" font-size="16" font-weight="600" letter-spacing="8.5" fill="#15181d">PERSONALBERATUNG</text>
+  <text x="128" y="63" font-family="Nunito, Arial, sans-serif" font-size="55" font-weight="800" letter-spacing="7" fill="#ffffff">KASTELL</text>
+  <text x="131" y="95" font-family="Nunito, Arial, sans-serif" font-size="16" font-weight="600" letter-spacing="8.5" fill="#ffffff">PERSONALBERATUNG</text>
 </svg>
