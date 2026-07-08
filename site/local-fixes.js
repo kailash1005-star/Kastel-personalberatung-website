@@ -1,3 +1,99 @@
+/* ============================================================
+   INTRO SPLASH — the overlay markup lives directly in index.html
+   (#kp-intro) so it is visible from the first paint. This script
+   only manages playback and dismissal. Shows on every page load.
+   ============================================================ */
+(function () {
+  function initIntro() {
+    var intro = document.getElementById('kp-intro');
+    if (!intro) return;
+
+    var v = document.getElementById('kp-intro-video');
+    var tapBtn = document.getElementById('kp-intro-tap');
+    var skipBtn = document.getElementById('kp-intro-skip');
+    var dismissed = false;
+    var playing = false;
+    var endTimer = null;
+
+    document.documentElement.classList.add('kp-intro-active');
+    document.body.classList.add('kp-intro-active');
+
+    v.muted = true;
+    v.defaultMuted = true;
+    v.playsInline = true;
+
+    function dismiss() {
+      if (dismissed) return;
+      dismissed = true;
+      // tell the hero to snap its background video to the final frame
+      // BEFORE the overlay fades, so the handoff is seamless
+      try { document.dispatchEvent(new CustomEvent('kp:intro-done')); } catch (e) {}
+      intro.style.transition = 'opacity 1s ease';
+      intro.style.opacity = '0';
+      intro.style.pointerEvents = 'none';
+      document.documentElement.classList.remove('kp-intro-active');
+      document.body.classList.remove('kp-intro-active');
+      setTimeout(function () {
+        if (intro.parentNode) intro.parentNode.removeChild(intro);
+      }, 1100);
+    }
+
+    function showTapPrompt() { intro.classList.add('needs-tap'); }
+    function hideTapPrompt() { intro.classList.remove('needs-tap'); }
+
+    v.addEventListener('ended', function () {
+      try { v.pause(); } catch (e) {}
+      setTimeout(dismiss, 400);
+    });
+
+    v.addEventListener('playing', function () {
+      playing = true;
+      hideTapPrompt();
+      if (endTimer) return;
+      var dur = isFinite(v.duration) && v.duration > 0 ? v.duration : 15;
+      endTimer = setTimeout(dismiss, (dur + 2.5) * 1000);
+    });
+
+    v.addEventListener('error', function () {
+      if (!playing) showTapPrompt();
+    });
+
+    setTimeout(dismiss, 45000);
+
+    skipBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      dismiss();
+    });
+    document.addEventListener('keydown', function esc(e) {
+      if (e.key === 'Escape') { dismiss(); document.removeEventListener('keydown', esc); }
+    });
+
+    tapBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      hideTapPrompt();
+      v.muted = true;
+      v.play().catch(showTapPrompt);
+    });
+
+    function tryPlay() {
+      var p;
+      try { p = v.play(); } catch (e) { showTapPrompt(); return; }
+      if (p && typeof p.then === 'function') {
+        p.then(hideTapPrompt).catch(showTapPrompt);
+      }
+    }
+    tryPlay();
+    v.addEventListener('loadeddata', function () { if (!playing) tryPlay(); });
+    v.addEventListener('canplay', function () { if (!playing) tryPlay(); });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initIntro);
+  } else {
+    initIntro();
+  }
+})();
+
 /* Local static-mirror fix: replace the stuck Revolution Slider hero on the homepage
    with a clean fullscreen video hero that reproduces the original look & feel. */
 (function () {
@@ -45,6 +141,39 @@
       hero.classList.add('is-revealed');   // fades content in + makes buttons clickable
     };
 
+    // Seek the hero's background video to its very last frame and hold it there.
+    var holdLastFrame = function () {
+      var seek = function () {
+        try {
+          v.pause();
+          if (isFinite(v.duration) && v.duration > 0) {
+            v.currentTime = Math.max(0, v.duration - 0.05);
+          }
+        } catch (e) {}
+      };
+      if (v.readyState >= 1) { seek(); }
+      else { v.addEventListener('loadedmetadata', seek, { once: true }); }
+    };
+
+    var introEl = document.getElementById('kp-intro');
+    if (introEl) {
+      // The fullscreen intro overlay plays the clip; the hero video never plays.
+      // When the intro finishes (or is skipped), freeze the hero bg on the
+      // clip's last frame so the landing background continues where it ended.
+      v.removeAttribute('autoplay');
+      v.autoplay = false;
+      try { v.pause(); } catch (e) {}
+      v.preload = 'auto';
+      document.addEventListener('kp:intro-done', function () {
+        holdLastFrame();
+        reveal();
+      }, { once: true });
+      // safety: never leave content hidden even if the intro script dies
+      setTimeout(function () { holdLastFrame(); reveal(); }, 50000);
+      return;
+    }
+
+    // ---- no intro overlay on this page: legacy self-playing hero ------------
     // If the visitor prefers reduced motion, skip the intro and show content now.
     var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduceMotion) {
